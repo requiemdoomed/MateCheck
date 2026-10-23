@@ -1,4 +1,4 @@
-# MateCheck
+## [MateCheck](https://requiemdoomed.github.io/MateCheck/)
 
 **Chess, played backwards.**
 
@@ -85,32 +85,6 @@ The soundtrack is meant to feel like a long journey. During a match it moves thr
 - **Crossroads:** the royals start out in open country. Expect early raids.
 - **The Long Road:** each royal pair wakes up deep in enemy land and has to march home.
 
-## What's inside
-
-```
-MateCheck/
-├── index.html            the main file: landing page, story theatre and game screen
-├── MateCheck.ipynb       the notebook that writes everything in assets/
-├── assets/
-│   ├── js/               engine, computer opponent, board, story, tutorial, game (with the clock), sound
-│   ├── css/              styles and the embedded fonts
-│   ├── audio/            the soundtrack (MP3), its manifest and a base64 bank for offline play
-│   ├── fonts/            Limelight and Chakra Petch (SIL Open Font License)
-│   └── img/              icon and cover
-├── tests/                Node tests for the rules, the tutorial and computer-vs-computer games
-├── requirements.txt      Python packages for the notebook
-└── LICENSE               MIT
-```
-
-### The notebook
-
-`MateCheck.ipynb` is where the whole project lives. Running it top to bottom:
-
-1. writes the rules in Python and checks them against the JavaScript engine with perft counts (they have to match exactly),
-2. tunes the computer's evaluation weights by self-play and writes `assets/js/weights.js`,
-3. composes and renders all nineteen music cues from scratch with NumPy and SciPy (harps, harpsichord, choir, bells, taiko, koto, bamboo flute, accordion, brass, guitar, drums, rain, thunder...) and writes the MP3s,
-4. writes every JavaScript and CSS file the page loads.
-
 To run it:
 
 ```bash
@@ -119,16 +93,6 @@ jupyter notebook MateCheck.ipynb   # then Run All
 ```
 
 A full run takes around five minutes. There are two switches at the top (`RUN_TRAINING`, `RENDER_AUDIO`) if you want to skip the slow parts.
-
-### Tests
-
-You need [Node.js](https://nodejs.org) for these:
-
-```bash
-node tests/engine.test.js       # rule checks (including the revival score) + 400 random games
-node tests/tutorial.test.js     # every lesson loads and can be solved
-node tests/selfplay.js 6 expert beginner   # watch the computer play itself
-```
 
 ## How it's built
 
@@ -143,12 +107,7 @@ Plain HTML, CSS and JavaScript. No frameworks, no build step, no network request
 
 Works in recent Chrome, Edge, Firefox and Safari (15.4+), on desktop and on phones.
 
-## Credits
-
 Made by **Swayam Shakya** ([@requiemdoomed](https://github.com/requiemdoomed)).
 
 Fonts: [Limelight](https://fonts.google.com/specimen/Limelight) by Sorkin Type and [Chakra Petch](https://fonts.google.com/specimen/Chakra+Petch) by Cadson Demak, both under the SIL Open Font License (see `assets/fonts/`). Everything else (pieces, illustrations, code and music) is original.
 
-## License
-
-MIT. See [LICENSE](LICENSE). Use it, change it, share it, just keep the copyright notice.
