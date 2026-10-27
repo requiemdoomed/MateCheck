@@ -36,6 +36,8 @@
     this.byFrom = {};
     this.selected = -1;
     this.picker = null;
+    var me = this;
+    if (root.addEventListener) root.addEventListener('resize', function () { me.placePicker(); });
     this.drag = null;
     this.hint = null;
     this.lastMove = null;
@@ -392,8 +394,6 @@
     var box = el('div', 'rally-picker' + (c.y >= 5 ? ' above' : ''));
     box.setAttribute('role', 'dialog');
     box.setAttribute('aria-label', 'Choose who rises on ' + E.sqName(from));
-    box.style.left = ((c.x + 0.5) * 12.5) + '%';
-    box.style.top = ((c.y + (c.y >= 5 ? 0 : 1)) * 12.5) + '%';
     var html = '<p>Who rises on ' + E.sqName(from) + '?</p><div class="opts">';
     var noneMove = 0, k = 0, keyMap = {};
     for (var i = 0; i < cands.length; i++) {
@@ -413,7 +413,8 @@
     });
     this.node.appendChild(box);
     this.sqEls[to].classList.add('sel');
-    this.picker = { box: box, keys: keyMap, none: noneMove, best: best };
+    this.picker = { box: box, keys: keyMap, none: noneMove, best: best, sq: from };
+    this.placePicker();
     var first = box.querySelector('.best') || box.querySelector('.rally-opt');
     if (first) first.focus({ preventScroll: true });
     this.pickerKey = function (e) {
@@ -426,6 +427,30 @@
     document.addEventListener('keydown', this.pickerKey);
   };
 
+    // Put the picker next to the rally square but always fully inside the board: centred on the
+  // square when there is room, slid sideways on the a- and h-files, and flipped above or below
+  // (or, on a small board, laid over the squares) so it never gets cut off at the edge.
+  Board.prototype.placePicker = function () {
+    if (!this.picker) return;
+    var box = this.picker.box, c = this.xy(this.picker.sq);
+    var W = this.node.clientWidth, H = this.node.clientHeight, cell = W / 8, pad = 4;
+    var w = box.offsetWidth, h = box.offsetHeight;
+    var left = (c.x + 0.5) * cell - w / 2;
+    left = Math.max(pad, Math.min(left, W - w - pad));
+    var below = (c.y + 1) * cell + 6, above = c.y * cell - h - 6;
+    var top;
+    if (c.y >= 4 && above >= pad) top = above;               // lower half of the screen: open upwards
+    else if (below + h <= H - pad) top = below;
+    else if (above >= pad) top = above;
+    else top = Math.max(pad, Math.min((c.y + 0.5) * cell - h / 2, H - h - pad));
+    box.style.left = Math.round(left) + 'px';
+    box.style.top = Math.round(top) + 'px';
+    // the little arrow keeps pointing at the square even when the box has slid
+    box.style.setProperty('--arrow-x', Math.round(Math.max(14, Math.min(w - 14, (c.x + 0.5) * cell - left))) + 'px');
+    box.classList.toggle('above', top < c.y * cell);
+    box.classList.toggle('over', top > c.y * cell - h && top < (c.y + 1) * cell);
+  };
+  
   Board.prototype.closePicker = function () {
     if (!this.picker) return;
     this.picker.box.remove();
