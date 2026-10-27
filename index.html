@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>MateCheck: chess, played backwards</title>
+  <meta name="description" content="MateCheck is a reverse chess game. Both sides start with only a king and a queen, rally their fallen army and race to rebuild the classic starting position. Play against the computer in your browser.">
+  <meta name="author" content="Swayam Shakya">
+  <meta name="theme-color" content="#2b0a3d">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="MateCheck: chess, played backwards">
+  <meta property="og:description" content="Start with a king and a queen. Rally the fallen. Win when your whole army stands home.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/cover.png">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/fonts.css?v=1.4">
+  <link rel="stylesheet" href="assets/css/matecheck.css?v=1.4">
+</head>
+<body class="screen-landing">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ======================= LANDING ======================= -->
+  <div id="landing" class="landing">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="MateCheck home">
+        <img src="assets/img/favicon.svg" alt="" width="28" height="28">
+        <span>MateCheck</span>
+      </a>
+      <nav class="topnav" aria-label="Sections">
+        <a href="#how">How it plays</a>
+        <a href="#laws">The laws</a>
+        <a href="#playbill">Playbill</a>
+        <a href="#credits">Credits</a>
+      </nav>
+      <button class="sound-pill" id="landingSound" type="button" aria-pressed="true" title="Sound on or off">
+        <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="sound-label">Sound on</span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="heroTitle">
+        <div class="proscenium">
+          <div class="valance" aria-hidden="true"></div>
+          <div class="drape drape-left" aria-hidden="true"></div>
+          <div class="drape drape-right" aria-hidden="true"></div>
+
+          <div class="hero-inner">
+            <div class="marquee">
+              <h1 id="heroTitle" class="title-swap" aria-label="MateCheck">
+                <span class="half half-mate" aria-hidden="true">Mate</span><span class="half half-check" aria-hidden="true">Check</span>
+              </h1>
+            </div>
+            <div class="hero-row">
+              <div class="hero-copy">
+                <p class="tagline">Chess, played backwards. You begin with a king and a queen. You win when your whole army stands home again.</p>
+                <p class="hero-note">Play against the computer at two levels with a real chess clock, learn in a twelve-lesson tutorial, and watch the story of the king who never won.</p>
+                <div class="cta">
+                  <button class="btn btn-primary" id="playBtn" type="button">Play the game</button>
+                  <a class="btn btn-ghost" href="#laws">Read the laws</a>
+                </div>
+                <button class="resume-link" id="resumeBtn" type="button" hidden>Continue your saved game</button>
+              </div>
+
+              <div class="hero-demo">
+                <div class="demo-board" id="demoBoard" role="img" aria-label="A small board playing a demo game: fallen pieces rise and walk back to their starting squares."></div>
+                <p class="demo-caption" id="demoCaption">A live demo game. Watch the armies rebuild.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footlights" aria-hidden="true"></div>
+      </section>
+
+      <section class="how" id="how" aria-labelledby="howTitle">
+        <h2 id="howTitle">How the realm runs backwards</h2>
+        <p class="lede">Real chess starts with full armies and ends with a lonely king. MateCheck turns that around. Every game starts where a lost game would end, and you play it back to the opening position.</p>
+        <ol class="steps">
+          <li>
+            <div class="step-art" aria-hidden="true" data-art="crown"></div>
+            <h3>Begin with a crown</h3>
+            <p>Each side starts with only its king and queen. The other fourteen pieces wait in the reserve.</p>
+          </li>
+          <li>
+            <div class="step-art" aria-hidden="true" data-art="rally"></div>
+            <h3>Rally the fallen</h3>
+            <p>When one of your pieces leaves a square on your muster ground, a fallen comrade can rise on the square it left.</p>
+          </li>
+          <li>
+            <div class="step-art" aria-hidden="true" data-art="seal"></div>
+            <h3>Walk them home</h3>
+            <p>Comrades move like chess pieces, and pawns walk backwards. A piece that reaches its own starting square is sealed there for good.</p>
+          </li>
+          <li>
+            <div class="step-art" aria-hidden="true" data-art="win"></div>
+            <h3>Call MateCheck</h3>
+            <p>The first army to stand complete in the classic starting position wins the game.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="laws" id="laws" aria-labelledby="lawsTitle">
+        <h2 id="lawsTitle">The laws of the reversed realm</h2>
+        <div class="law-columns">
+          <div class="law-card stays">
+            <h3>What stays from chess</h3>
+            <ul>
+              <li>Knights, bishops, rooks, queens and kings move exactly as you know them.</li>
+              <li>Check is still check. You may never leave your own king attacked.</li>
+              <li>A bishop never changes colour, so the reserve keeps a light one and a dark one.</li>
+              <li>Pieces block each other as usual. Only knights jump.</li>
+            </ul>
+          </div>
+          <div class="law-card flips">
+            <h3>What flips</h3>
+            <ul>
+              <li><strong>Pawns walk backwards</strong>, one step straight or diagonal toward their own second rank. From the fourth rank a pawn may step two at once.</li>
+              <li><strong>Only royals strike.</strong> A king or queen can banish an enemy comrade back to its reserve. Nobody dies, and comrades never strike or give check.</li>
+              <li><strong>Comrades shield each other.</strong> In its own half, a comrade with a friend next to it can't be banished.</li>
+              <li><strong>Checkmate is outlawed.</strong> A move that would leave a king with no escape is simply not allowed.</li>
+              <li><strong>Courts are closed.</strong> No piece may enter the enemy's two home ranks.</li>
+              <li><strong>Recall</strong> sends one of your own unsealed comrades back to the reserve, for when a piece gets stuck.</li>
+              <li><strong>Dawn</strong> breaks after 100 moves each. Whoever has more pieces home wins.</li>
+              <li><strong>Or play the Grand Revival.</strong> Raise every comrade and walk them home against the clock. When time runs out, nobody loses on time: the bigger revival wins.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="zones" aria-label="The four bands of the board">
+          <div class="zone z-bcourt"><span>Black's court</span><small>Ranks 8 and 7. Black seals here. White may not enter.</small></div>
+          <div class="zone z-bmuster"><span>Black's muster ground</span><small>Ranks 6 and 5. Black's fallen rise here.</small></div>
+          <div class="zone z-wmuster"><span>White's muster ground</span><small>Ranks 4 and 3. White's fallen rise here.</small></div>
+          <div class="zone z-wcourt"><span>White's court</span><small>Ranks 2 and 1. White seals here. Black may not enter.</small></div>
+        </div>
+        <div class="endings" aria-label="Two ways a match can end">
+          <article class="ending-card">
+            <p class="ending-kicker">Classic ending</p>
+            <h3>MateCheck at Dawn</h3>
+            <p>Stand all sixteen pieces on their starting squares to win on the spot. If nobody manages it, dawn breaks after 100 moves each and more pieces home wins. With a clock, running out of time loses.</p>
+          </article>
+          <article class="ending-card revival-card">
+            <p class="ending-kicker">The original idea</p>
+            <h3>The Grand Revival</h3>
+            <p>Every fallen piece must be revived and brought back to its square. MateCheck still wins at once, but when a clock runs out (or dawn breaks) the revival is counted: <b>1 point</b> for every comrade risen onto the board, <b>1 more</b> for every piece standing home, up to 30. The bigger revival wins.</p>
+          </article>
+        </div>
+        <p class="tip">One piece of advice before you play: fill your back rank first. Sealed pawns never move again, so a pawn wall closed too early locks your rooks, bishops and royals out for good.</p>
+      </section>
+
+      <section class="playbill" id="playbill" aria-labelledby="billTitle">
+        <div class="bill">
+          <header class="bill-head">
+            <p class="bill-kicker">Tonight's programme</p>
+            <h2 id="billTitle">The playbill</h2>
+            <p>Everything that makes MateCheck run, for the curious and for anyone who wants to fork it.</p>
+          </header>
+
+          <div class="bill-grid">
+            <article class="bill-block">
+              <h3>The cast</h3>
+              <dl class="cast">
+                <dt>index.html</dt><dd>The stage door. Open it and the show begins.</dd>
+                <dt>MateCheck.ipynb</dt><dd>The script. A Jupyter notebook that holds every line of game code, tunes the computer opponent by self-play, composes the soundtrack and writes all of it into <code>assets/</code>.</dd>
+                <dt>engine.js</dt><dd>The rules: move generation, rallies, sealing, shields, the checkmate ban, hashing and notation.</dd>
+                <dt>brain.js</dt><dd>The computer opponent, running inside a Web Worker so the board stays smooth while it thinks.</dd>
+                <dt>board.js and game.js</dt><dd>The board you touch, the panels and chess clocks around it, and the flow of a match.</dd>
+                <dt>theatre.js and tutorial.js</dt><dd>The curtain, the prologue cut to its overture, the three-act story and the guided lessons.</dd>
+                <dt>sound.js</dt><dd>Gapless music loops, the travelling gameplay soundtrack, crossfades and live synthesized sound effects.</dd>
+              </dl>
+            </article>
+
+            <article class="bill-block">
+              <h3>Behind the curtain</h3>
+              <ul class="facts">
+                <li><b>Search</b> Negamax with alpha-beta and principal variation search, iterative deepening, a 262,144-entry transposition table keyed by 64-bit Zobrist hashes, killer and history move ordering, late move reductions, check extensions and a quiescence search over banishing moves.</li>
+                <li><b>Evaluation</b> "Work remaining": for every piece, the true number of moves it still needs to reach home, found by breadth-first search around its own sealed pieces. Path maps are cached per wall pattern, so a locked-out rook costs a fortune and the computer avoids sealing itself in.</li>
+                <li><b>Two endings</b> MateCheck at Dawn, or the Grand Revival, where a falling flag ends the match and the army with the higher revival score (comrades risen plus pieces home) wins. The computer weighs that score more heavily as its clock runs down.</li>
+                <li><b>Two opponents</b> Beginner-friendly looks one move ahead for each side and sometimes picks a weaker idea on purpose. Expert Courtroom searches up to eight half-moves deep within about a second and plays to win.</li>
+                <li><b>Rules safety net</b> 42 automated rule checks, 400 random games per test run and dozens of computer-against-computer matches, with a Python twin of the engine that agrees with it move for move on every test position.</li>
+              </ul>
+            </article>
+
+            <article class="bill-block">
+              <h3>The orchestra</h3>
+              <ul class="facts">
+                <li><b>Nineteen cues</b> composed in code: a royal synthwave hall theme, a full-band adventure overture for the prologue, a taiko-and-flute theme for the old realm, a rain-soaked lament, a heavenly choir, a cliffhanger, a tutorial theme, six exploration themes for matches, a battle cue and four stingers.</li>
+                <li><b>The journey</b> During a match the music keeps travelling: each exploration theme (sea, desert, forest, sky, hidden village, mountains) plays for about a minute before the next crossfades in, and checks, a close finish or a low clock cut to the battle cue.</li>
+                <li><b>Instruments</b> Built from scratch with NumPy and SciPy: additive harps, harpsichords and pianos, FM bells and electric piano, formant-filtered choirs, band-limited brass and horn, taiko, koto, bamboo flute, accordion, overdriven guitar, synthesized drums and convolution reverb.</li>
+                <li><b>Playback</b> 128 kbps MP3, looped sample-accurately through the Web Audio API with crossfades between scenes. Move sounds are synthesized live in the browser.</li>
+              </ul>
+            </article>
+
+            <article class="bill-block">
+              <h3>Running notes</h3>
+              <ul class="facts">
+                <li><b>Stack</b> HTML5, CSS3 and plain JavaScript with no frameworks and no build step. Web Audio, Web Workers, and Speech Synthesis for the optional narrator.</li>
+                <li><b>Runs anywhere</b> Recent Chrome, Edge, Firefox and Safari (15.4 or newer), on desktop and phone. Works straight from your disk, offline, or from GitHub Pages.</li>
+                <li><b>Rebuild it</b> Python 3.10+, NumPy, SciPy and lameenc, then run all cells in <code>MateCheck.ipynb</code>.</li>
+                <li><b>Saves</b> Your settings and an unfinished game are kept in your browser's local storage. Nothing leaves your device.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="credits" id="credits" aria-labelledby="creditsTitle">
+        <h2 id="creditsTitle">Credits</h2>
+        <div class="credit-card">
+          <p class="credit-role">Written, designed and directed by</p>
+          <p class="credit-name">Swayam Shakya</p>
+          <p class="credit-links">
+            <a href="https://github.com/requiemdoomed" rel="noopener" target="_blank">github.com/requiemdoomed</a>
+          </p>
+        </div>
+        <div class="license">
+          <h3>License</h3>
+          <p>MateCheck is free and open source under the MIT License. Use it, change it, share it; just keep the copyright notice.</p>
+          <details>
+            <summary>Read the full MIT License</summary>
+            <pre>MIT License
+
+Copyright (c) 2026 Swayam Shakya
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</pre>
+          </details>
+          <p class="fonts-note">Typefaces: Limelight by Sorkin Type and Chakra Petch by Cadson Demak, both under the SIL Open Font License. Every piece, illustration, line of code and note of music in this project is original.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>MateCheck v1.0 by Swayam Shakya. MIT License. Made for people who like their chess a little upside down.</p>
+      <a href="#top">Back to the stage</a>
+    </footer>
+  </div>
+
+  <!-- ======================= THEATRE (story) ======================= -->
+  <div id="theatre" class="theatre" hidden>
+    <div class="stage" id="storyStage" aria-live="polite"></div>
+    <div class="film-grain" aria-hidden="true"></div>
+    <div class="curtain curtain-left" aria-hidden="true"></div>
+    <div class="curtain curtain-right" aria-hidden="true"></div>
+    <div class="curtain-valance" aria-hidden="true"></div>
+    <div class="story-hud">
+      <button class="hud-btn" id="narratorBtn" type="button" aria-pressed="false">Narrator: off</button>
+      <button class="hud-btn" id="storyNextBtn" type="button">Next</button>
+      <button class="hud-btn hud-skip" id="skipStoryBtn" type="button">Skip story</button>
+    </div>
+  </div>
+
+  <!-- ======================= GAME ======================= -->
+  <div id="game" class="game" hidden>
+    <header class="game-bar">
+      <button class="brand brand-btn" id="homeBtn" type="button" title="Back to the lobby">
+        <img src="assets/img/favicon.svg" alt="" width="26" height="26">
+        <span>MateCheck</span>
+      </button>
+      <p class="match-label" id="matchLabel">The Last Stand</p>
+      <p class="now-playing" id="nowPlaying" aria-live="off" title="Now playing">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+        <span></span>
+      </p>
+      <div class="bar-actions">
+        <button class="bar-btn" id="newGameBtn" type="button">New game</button>
+        <button class="bar-btn" id="undoBtn" type="button">Undo</button>
+        <button class="bar-btn" id="hintBtn" type="button">Hint</button>
+        <button class="bar-btn" id="resignBtn" type="button">Resign</button>
+        <button class="bar-btn" id="rulesBtn" type="button">Rules</button>
+        <button class="bar-btn" id="tutorialBtn" type="button">Tutorial</button>
+        <button class="bar-btn" id="storyBtn" type="button">Story</button>
+        <button class="bar-btn icon" id="settingsBtn" type="button" aria-label="Sound and display settings">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="wave" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>
+        </button>
+        <button class="bar-btn icon menu-toggle" id="menuToggle" type="button" aria-label="More actions" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="game-layout">
+      <aside class="side side-top" id="panelOpponent" aria-label="Computer"></aside>
+      <section class="board-area" aria-label="Board">
+        <div class="board-frame">
+          <div id="board" class="mc-board"></div>
+        </div>
+        <div class="mobile-clock" id="mobileClock"></div>
+        <div class="mobile-revival" id="mobileRevival"></div>
+        <div class="status-line" id="statusLine" role="status" aria-live="polite"></div>
+        <div class="action-row" id="actionRow"></div>
+      </section>
+      <aside class="side side-bottom" id="panelPlayer" aria-label="You"></aside>
+      <aside class="side side-log" aria-label="Moves">
+        <h3 class="log-title">Moves</h3>
+        <ol class="move-log" id="moveLog"></ol>
+      </aside>
+    </div>
+
+    <div class="coach" id="coach" hidden>
+      <div class="coach-card" role="dialog" aria-labelledby="coachTitle" aria-modal="false">
+        <p class="coach-progress" id="coachProgress"></p>
+        <h3 id="coachTitle"></h3>
+        <div class="coach-text" id="coachText"></div>
+        <p class="coach-task" id="coachTask"></p>
+        <div class="coach-actions">
+          <button class="btn btn-small btn-ghost" id="coachBack" type="button">Back</button>
+          <button class="btn btn-small btn-ghost" id="coachHint" type="button">Show me</button>
+          <button class="btn btn-small btn-primary" id="coachNext" type="button">Next</button>
+          <button class="coach-skip" id="coachSkip" type="button">Skip tutorial</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================= DIALOGS ======================= -->
+  <dialog class="modal" id="newGameDialog" aria-labelledby="newGameTitle">
+    <form method="dialog" class="modal-body" id="newGameForm">
+      <h2 id="newGameTitle">Set the stage</h2>
+      <fieldset>
+        <legend>Your opponent</legend>
+        <label class="choice"><input type="radio" name="level" value="beginner" checked>
+          <span><b>Beginner-friendly</b><small>Looks one move ahead for each side and makes the odd human slip. Good for learning.</small></span></label>
+        <label class="choice"><input type="radio" name="level" value="expert">
+          <span><b>Expert Courtroom</b><small>Searches up to eight half-moves deep, guards its muster ground and punishes loose pieces.</small></span></label>
+      </fieldset>
+      <fieldset>
+        <legend>Your army</legend>
+        <label class="choice compact"><input type="radio" name="side" value="1" checked><span><b>White</b><small>You move first.</small></span></label>
+        <label class="choice compact"><input type="radio" name="side" value="-1"><span><b>Black</b><small>The computer opens.</small></span></label>
+      </fieldset>
+      <fieldset>
+        <legend>Ending</legend>
+        <div class="ending-choices">
+          <label class="choice compact"><input type="radio" name="ending" value="matecheck" checked>
+            <span><b>MateCheck at Dawn</b><small>Stand your whole army home to win. Otherwise, more pieces home after 100 moves each. Out of time is a loss.</small></span></label>
+          <label class="choice compact"><input type="radio" name="ending" value="revival">
+            <span><b>The Grand Revival</b><small>Revive every comrade and walk them home. When time runs out, the bigger revival wins: 1 point per comrade risen, 1 more per piece home.</small></span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Chess clock</legend>
+        <div class="clock-choices">
+          <label class="pill-choice"><input type="radio" name="clock" value="none"><span><b>Untimed</b><small>Take your time</small></span></label>
+          <label class="pill-choice"><input type="radio" name="clock" value="15+10"><span><b>15 + 10</b><small>Relaxed rapid</small></span></label>
+          <label class="pill-choice"><input type="radio" name="clock" value="10+0" checked><span><b>10 + 0</b><small>Classic rapid</small></span></label>
+          <label class="pill-choice"><input type="radio" name="clock" value="5+3"><span><b>5 + 3</b><small>Blitz</small></span></label>
+          <label class="pill-choice"><input type="radio" name="clock" value="3+2"><span><b>3 + 2</b><small>Fast blitz</small></span></label>
+        </div>
+        <p class="field-note">Minutes each, plus seconds added after every move. In the classic ending, running out of time loses; in the Grand Revival it ends the match and the revival is counted. The clock pauses when you leave the board or switch tabs.</p>
+      </fieldset>
+      <fieldset>
+        <legend>Battlefield</legend>
+        <div class="field-list" id="fieldList"></div>
+      </fieldset>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" value="cancel" type="submit" id="newGameCancel">Cancel</button>
+        <button class="btn btn-primary" value="start" type="submit" id="newGameStart">Start the match</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="modal modal-wide" id="rulesDialog" aria-labelledby="rulesTitle">
+    <div class="modal-body">
+      <h2 id="rulesTitle">Rules at a glance</h2>
+      <div class="rules-grid" id="rulesBody"></div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" type="button" data-close>Back to the board</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="settingsDialog" aria-labelledby="settingsTitle">
+    <div class="modal-body">
+      <h2 id="settingsTitle">Sound and display</h2>
+      <label class="slider"><span>Music</span><input type="range" min="0" max="100" id="musicVol"></label>
+      <label class="slider"><span>Effects</span><input type="range" min="0" max="100" id="sfxVol"></label>
+      <label class="toggle"><input type="checkbox" id="muteAll"><span>Mute everything</span></label>
+      <label class="toggle"><input type="checkbox" id="showGhosts" checked><span>Show home squares as ghost pieces</span></label>
+      <label class="toggle"><input type="checkbox" id="showCoords" checked><span>Show coordinates</span></label>
+      <label class="toggle"><input type="checkbox" id="autoRally"><span>Rally automatically (skip the picker)</span></label>
+      <div class="modal-actions">
+        <button class="btn btn-primary" type="button" data-close>Done</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="resultDialog" aria-labelledby="resultTitle">
+    <div class="modal-body result-body">
+      <p class="result-kicker" id="resultKicker"></p>
+      <h2 id="resultTitle"></h2>
+      <p class="result-text" id="resultText"></p>
+      <dl class="result-stats" id="resultStats"></dl>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" id="resultReview">Look at the board</button>
+        <button class="btn btn-ghost" type="button" id="resultSettings">Change settings</button>
+        <button class="btn btn-primary" type="button" id="resultAgain">Play again</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="resignDialog" aria-labelledby="resignTitle">
+    <div class="modal-body">
+      <h2 id="resignTitle">Lay down your crown?</h2>
+      <p class="modal-text">The computer wins this match. Your saved game is cleared.</p>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" data-close>Keep playing</button>
+        <button class="btn btn-primary danger" type="button" id="resignConfirm">Resign</button>
+      </div>
+    </div>
+  </dialog>
+
+  <button class="sound-hint" id="soundHint" type="button" hidden>
+    <span class="sound-hint-eq" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="hint-long">The music is waiting. Click or tap anywhere to let it in.</span>
+    <span class="hint-short">Tap anywhere for music</span>
+  </button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <noscript><p class="noscript">MateCheck needs JavaScript to run. Please enable it and reload the page.</p></noscript>
+
+  <script src="assets/js/engine.js?v=1.4"></script>
+  <script src="assets/js/weights.js?v=1.4"></script>
+  <script src="assets/js/brain.js?v=1.4"></script>
+  <script src="assets/js/pieces.js?v=1.4"></script>
+  <script src="assets/audio/manifest.js?v=1.4"></script>
+  <script src="assets/js/sound.js?v=1.4"></script>
+  <script src="assets/js/board.js?v=1.4"></script>
+  <script src="assets/js/theatre.js?v=1.4"></script>
+  <script src="assets/js/tutorial.js?v=1.4"></script>
+  <script src="assets/js/game.js?v=1.4"></script>
+  <script src="assets/js/main.js?v=1.4"></script>
+</body>
+</html>
