@@ -4,7 +4,7 @@
 
 In normal chess you start with a full army and end up (if things go badly) with a lonely king. MateCheck flips that. Both sides start with only a king and a queen, the fallen pieces come back one by one, and the first player to stand their whole army in the classic starting position calls **MateCheck** and wins.
 
-It runs in the browser, you play against the computer (with a proper chess clock if you want one), and there's an animated story at the start about the king who never won a game, with its own adventure soundtrack.
+Build in plain HTML, CSS, and Javascript, along with Python Notebook, it is lightweight and smoothly runs in the browser. You play against the computer (with a proper chess clock if you want one), and there's an animated story at the start about the king who never won a game, with its own adventure soundtrack.
 
 ![MateCheck cover](assets/img/cover.png)
 
