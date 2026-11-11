@@ -8,28 +8,19 @@ Build in plain HTML, CSS, and Javascript, along with Python Notebook, it is ligh
 
 ![MateCheck cover](assets/img/cover.png)
 
-## Play it
+## Play it:
 
 **Option 1: just open it.** Download or clone this repo and double-click `index.html`. That's it. No install, no server, works offline.
 
 **Option 2: GitHub Pages.** Fork the repo, go to *Settings > Pages*, pick the `main` branch and the root folder, and your copy will be live at `https://<your-username>.github.io/MateCheck/` in a minute or two.
 
-**Option 3: a local server** (if you like that better):
-
-```bash
-python -m http.server 8000
-# then open http://localhost:8000
-```
-
-The music starts by itself when the page opens, as long as your browser allows it (Chrome and Edge do for sites you've played sound on before; Firefox and Safari have a per-site autoplay setting). If the browser holds it back, a small note at the bottom says so, and the music starts on your very first click, tap or key press anywhere. The cues are downloaded in the background while you wait, so it starts instantly. There's a sound toggle in the top bar.
-
-## How a game goes
+## How the game goes?
 
 1. You press **Play the game**, the curtains close, and the story plays: a prologue that sweeps across the realm in time with the overture, then three short acts and a cliffhanger. You can skip it any time.
 2. On your first visit you get a short **tutorial**: twelve quick lessons on the real board. Each one has a small task, and a *Show me* button if you get stuck.
 3. Then you pick your opponent, your colour, how the match ends, a chess clock and a battlefield, and the match begins.
 
-### The rules in one minute
+### Rules:
 
 - Each side starts with only its **king and queen**. Everything else waits in the reserve.
 - **Rally:** when one of your pieces leaves a square on your **muster ground** (ranks 3-4 for White, 5-6 for Black), a piece from your reserve can rise on the square it just left. Most good moves raise someone.
@@ -43,7 +34,7 @@ The music starts by itself when the page opens, as long as your browser allows i
 - **Recall:** if one of your pieces gets stuck, you can send it back to the reserve instead of moving.
 - **Dawn:** if nobody finishes, the game ends after 100 moves each, and whoever has more pieces home wins. There's no draw by repetition, so stalling never saves you.
 
-### Two ways to end a match
+### Two endings:
 
 **MateCheck at Dawn** (the classic): stand all sixteen pieces on their starting squares and you win on the spot. If nobody manages it, dawn breaks after 100 moves each and more pieces home wins. With a clock, running out of time loses.
 
