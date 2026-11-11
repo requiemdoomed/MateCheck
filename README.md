@@ -65,7 +65,7 @@ Pick a time control when you start a match: **untimed**, **15 + 10**, **10 + 0**
 
 The soundtrack is meant to feel like a long journey. During a match it moves through six exploration themes (the open sea, a desert caravan, a glowing forest, a voyage above the clouds, a hidden village and the mountain peaks), about a minute each, crossfading into the next. When things get tense (a king in check, someone nearly home, dawn approaching or your clock running low) it cuts to a battle theme and drifts back once it calms down. The track name shows up in the top bar.
 
-### Opponents
+### Game Modes:
 
 - **Beginner-friendly** looks one move ahead for each side and sometimes picks a weaker idea on purpose. Good for learning.
 - **Expert Courtroom** searches up to eight half-moves deep in about a second, guards its muster ground and punishes loose pieces. It's not unbeatable, but it doesn't give much away.
