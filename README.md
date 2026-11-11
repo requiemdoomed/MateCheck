@@ -61,7 +61,7 @@ The one piece of advice I'd give: **fill your back rank first.** Sealed pawns ne
 
 Pick a time control when you start a match: **untimed**, **15 + 10**, **10 + 0**, **5 + 3** or **3 + 2** (minutes each, plus seconds added after every move). Your clock runs on your turn, the computer's on its turn. In the classic ending whoever hits zero first loses; in the Grand Revival a falling flag ends the match and the revival is counted. The last ten seconds tick. Undo puts the time back the way it was, and the clock pauses if you leave the board or switch to another tab, so a casual game is never lost to a phone call. You can also **resign** from the top bar.
 
-### The music
+### Music and Storytelling:
 
 The soundtrack is meant to feel like a long journey. During a match it moves through six exploration themes (the open sea, a desert caravan, a glowing forest, a voyage above the clouds, a hidden village and the mountain peaks), about a minute each, crossfading into the next. When things get tense (a king in check, someone nearly home, dawn approaching or your clock running low) it cuts to a battle theme and drifts back once it calms down. The track name shows up in the top bar.
 
