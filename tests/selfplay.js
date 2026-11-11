@@ -1,3 +1,4 @@
+
 // Self-play arena.  node tests/selfplay.js [games] [whiteLevel] [blackLevel] [battlefield]
 'use strict';
 const E = require('../assets/js/engine.js');
