@@ -76,16 +76,7 @@ The soundtrack is meant to feel like a long journey. During a match it moves thr
 - **Crossroads:** the royals start out in open country. Expect early raids.
 - **The Long Road:** each royal pair wakes up deep in enemy land and has to march home.
 
-To run it:
-
-```bash
-pip install -r requirements.txt
-jupyter notebook MateCheck.ipynb   # then Run All
-```
-
-A full run takes around five minutes. There are two switches at the top (`RUN_TRAINING`, `RENDER_AUDIO`) if you want to skip the slow parts.
-
-## How it's built
+## Languages Used:
 
 Plain HTML, CSS and JavaScript. No frameworks, no build step, no network requests (fonts and sounds ship with the repo).
 
