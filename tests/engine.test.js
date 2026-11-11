@@ -1,4 +1,3 @@
-
 // Engine checks. Run with:  node tests/engine.test.js
 'use strict';
 const E = require('../assets/js/engine.js');
