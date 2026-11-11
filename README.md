@@ -49,7 +49,7 @@ So a sealed rook is worth 2, a knight still walking home is worth 1, and a full 
 
 The one piece of advice I'd give: **fill your back rank first.** Sealed pawns never move again, so if you close your pawn wall too early your rooks, bishops, king and queen can never get home.
 
-### Controls
+### Controls:
 
 - Click a piece, then click where it should go. Or drag it.
 - When a comrade can rise behind your move, a small picker pops up. Press `1`-`5` to choose, `0` for nobody, `Esc` to cancel. (You can switch the picker off in the settings and let the game choose for you.)
