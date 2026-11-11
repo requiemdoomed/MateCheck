@@ -57,7 +57,7 @@ The one piece of advice I'd give: **fill your back rank first.** Sealed pawns ne
 - `Ctrl+Z` takes back a move, `H` asks for a hint. Arrow keys and `Enter` work on the board too.
 - During the story: `Space` or `Enter` for the next line, `Esc` to skip.
 
-### The clock
+### Timer:
 
 Pick a time control when you start a match: **untimed**, **15 + 10**, **10 + 0**, **5 + 3** or **3 + 2** (minutes each, plus seconds added after every move). Your clock runs on your turn, the computer's on its turn. In the classic ending whoever hits zero first loses; in the Grand Revival a falling flag ends the match and the revival is counted. The last ten seconds tick. Undo puts the time back the way it was, and the clock pauses if you leave the board or switch to another tab, so a casual game is never lost to a phone call. You can also **resign** from the top bar.
 
